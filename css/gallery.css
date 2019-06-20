@@ -1,0 +1,123 @@
+html,body {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: Arial,sans-serif;
+}
+
+header {
+	width: 100%;
+	height: 56px;
+	background-color: ;
+	box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+	margin-bottom: 64px;
+	line-height: 56px;
+	text-align: center;
+}
+
+.mainStuff img {
+	width: 100%;
+}
+
+
+.mainStuff {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+
+.img-cntr {
+	width: 25%;
+	padding: 8px;
+	cursor: pointer;
+}
+
+.img-viewer {
+	opacity: 0;
+	pointer-events: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	padding: 32px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: rgba(0,0,0,0.7);
+}
+
+.img-viewer img {
+	transform-origin: 0 0;
+	transform: translate3d(0,0,0);
+	will-change: transform;
+
+}
+
+.visible {
+	opacity: 1;
+	pointer-events: auto;
+}
+
+
+.tall {
+	height: 100%;
+	width: auto;
+}
+
+.wide {
+	width: 100%;
+	height: auto;
+}
+
+.imgtitle,.imgdesc{
+	position: relative;
+	color: white;
+	padding-left: 32px;
+}
+
+.grad{
+	position: absolute;
+	background: -webkit-linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0));
+	padding-bottom: 32px;
+	opacity: 0;
+	transition: opacity 0.2s linear;
+}
+
+
+* {
+	box-sizing: border-box;
+	-webkit-tap-highlight-color: transparent;
+}
+
+.imghead,.imgpara{
+	display: none;
+}
+
+/**********Mobile***********/
+
+
+
+@media ( max-width: 640px) {
+
+	.imgtitle{
+		font-size: 20px;
+	}
+	.imgdesc{
+		font-size: 15px;
+	}
+
+	.img-cntr {
+		width: 100%;
+	}
+
+
+	.img-viewer {
+		padding: 0;
+	}
+
+}
