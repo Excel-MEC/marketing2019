@@ -1,13 +1,21 @@
 body{
   margin: 0;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
-h2{
-  font-family: 'Varela Round', sans-serif;
+h2,h4{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: normal;
 }
 .subh{
   font-family: 'Signika', sans-serif;
+}
+
+.legacy>p,.container>p,.ibeto>p,.contact-desc>p{
+  color: #333333;
+}
+.contact-desc>.contile{
+  color: black;
 }
 
 section.contacts h2{
@@ -24,6 +32,35 @@ section.contacts h2{
 }
 
 @media (min-width:300px){
+  .brochure{
+    text-align: center;
+  }
+  .brochure-button{
+    width: 70%;
+    text-align: center;
+    margin: auto;
+    margin-top: 50px;
+  }
+  .brochure-button a{
+    text-decoration: none;
+    color: white;
+    background-color: #4A148C;
+    padding: 10px 20px;
+    font-size: 15px;
+    border-radius: 5px;
+  }
+  .spon16{
+    font-size: 23px;
+  }
+  .reach h2{
+    margin-bottom: 0;
+  }
+  .navbar>div:hover{
+    border-bottom: 2px solid #c54d4d;
+  }
+  .tab-view>div:hover{
+    border-bottom: 4px solid #c54d4d;
+  }
   section.reach,section.contacts{
     padding-top: 50px;
     padding-bottom: 50px;
@@ -31,17 +68,30 @@ section.contacts h2{
   .page_links{
     display: none;
   }
+
+  .logo-container{
+    margin: auto;
+  }
+
+  .logo-container img{
+    width: 250px;
+  }
+
+  .container{
+    width: 90%;
+    margin: auto;
+  }
+
   .drop_screen{
-    border-top: 1px solid #d5d5d5;
-    border-bottom: 1px solid #d5d5d5;
+    height: 40vh;
     display:flex;
     position: relative;
-    background-image: url('../imgs/mec.png');
     background-repeat: no-repeat;
     background-position: top;
     background-size: contain;
-    height: calc(100vh - 116px);
   }
+
+
   .mec-link{
     position: absolute;
     padding: 10px;
@@ -49,15 +99,21 @@ section.contacts h2{
     right: 0;
     /*bottom: 0;*/
   }
+  .college-container img{
+    width: 100%;
+  }
+  .services img{
+    width: 200px;
+  }
   .mec-link img{
     height: 30px;
   }
   .legacy{
-    width: 90%;
-    position: absolute;
-    left: 50%;
+    /*width: 90%;*/
+    /*position: absolute;*/
+    /*left: 50%;*/
     bottom: 0;
-    transform: translateX(-50%);
+    /*transform: translateX(-50%);*/
     /*background-color: white;*/
     /*background: -webkit-linear-gradient(bottom, white 80%, rgba(255, 255, 255, 0));
     background: linear-gradient(bottom, white 80%, rgba(255, 255, 255, 0));*/
@@ -129,57 +185,135 @@ section.contacts h2{
     margin-top: 2px;
   }
   /*---------Excel reach--------*/
+  section.reach{
+    height: 200px;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
   .reach{
     text-align: center;
     padding-top: 20px;
     padding-bottom:20px;
-    border-bottom: 1px solid #d5d5d5;
+    /*border-bottom: 1px solid #d5d5d5;*/
   }
   .reach-content{
-    width: 75%;
-    margin: auto;
+    height: 100px;
+    position: relative;
   }
-  .reach-content>div{
-    margin-top: 60px;
-    margin-bottom: 60px;
+  .reach-content>p,.reach-content div{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%)scale(1);;
+    width: 95%;
+    will-change: transform;
+    opacity: 0;
+    margin: 0;
+    font-size: 15px;
+    transition: transform 20s,opacity 0.5s;
   }
-  .reach-content>div>div{
-    background-color: white;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+
+  .reach-content #logo{
+    opacity: 0;
+    width: 200px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    animation-duration: 1s;
+    transform: translate(-50%,-50%)scale(1);
+    transition: transform 20s,opacity 0.5s;
   }
-  .reach-content>div img{
-    width: 60px;
-    box-shadow: -1px 3px 5px grey;
-    border-radius: 100%;
+
+  .reach-content .activate-slide{
+    opacity: 1 !important;
+    transform: translate(-50%,-50%)scale(0.7) !important;
   }
-  .sublogo{
-    padding: 10px;
+
+  .graphic{
+    float: right;
+    height: 50px;
+  }
+  .grad{
+    background: -webkit-linear-gradient(left,#943ec4, #cd3f5b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 20px;
+    font-weight: bolder;
+  }
+  .reach-content div{
+    display: flex;
+    justify-content: center;
+  }
+
+  .reach-content div *{
+    margin-top: auto;
+    margin-bottom: auto;
+    padding: 5px;
+  }
+
+  .tagline{
+    display: flex;
+    transition: transform 20s,opacity 0.5s;
+    position: absolute;
+    opacity: 0;
+    left: 50%;
+    top: 50%;
     transform: translate(-50%,-50%);
   }
-  .reach-content>div .subh{
-    font-size: 25px;
+  .tagline img{
+    height: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .roots,.ibeto,.services{
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .roots{
+    padding-bottom: 0 !important;
+  }
+  .ibetosection a{
+    text-decoration: none;
+    text-align: center !important;
+    width: 50%;
     padding: 10px;
-    text-align: right;
-    width: 100%;
+    background-color: #943ec4;
+    border-radius: 5px;
+    color: white;
+    clear: both;
+    margin: auto;
+    font-size: 20px;
   }
-  .reach-header{
-    display: inline-flex;
-    width: 100%;
-    background-color: #2a2a2a;
-    color: wheat;
+
+  .roots img,.ibeto img,.services img{
+    width: 200px;
+    margin: auto;
+    display: block;
   }
-  .reach-content p{
-    padding: 10px;
-    margin: 0;
+  .roots h2,.roots p,.ibeto p,.ibeto h2,.ibetosection a,.services p,.services h2{
+    text-align: center;
+    display: block;
   }
+
+  .ibeto-sec img{
+    margin: auto;
+    display: block;
+    width: 200px;
+  }
+
   /*-------Experience--------*/
   .experience{
     text-align: center;
     padding-top: 20px;
-    border-bottom: 1px solid #d5d5d5;
+    /*border-bottom: 1px solid #d5d5d5;*/
   }
   .experience-content>div{
-    width: 100%;
+    width: 98%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
     display: flex;
   }
   .experience-content>div>div{
@@ -188,11 +322,13 @@ section.contacts h2{
     text-align: left;
   }
   .experience-content>div>div>p{
-    font-family: 'Satisfy', cursive;
+    font-family: 'Bad Script', cursive;
     font-weight: normal;
+    font-size: 12px;
+    line-height: 20px;
   }
   .experience-content>div h3{
-    font-size: 15px;
+    font-size: 8px;
     margin-bottom: 2px;
   }
   /*photo and the text in testimony*/
@@ -202,10 +338,12 @@ section.contacts h2{
   }
   .experience-content>div>img{
     height: 50%;
+    border-radius: 100%;
   }
   .experience-content>div>div>span{
-    font-size: 12px;
+    font-size: 8px;
   }
+
   /*-----contacts---------*/
   .contacts{
     text-align: center;
@@ -217,10 +355,10 @@ section.contacts h2{
     margin-top: 40px;
   }
   .contacts-contents>div{
-    width: 90%;
+    width: 65%;
     margin: auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 40px;
+    margin-bottom: 40px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
   }
   .contacts-contents>div>div{
@@ -241,32 +379,23 @@ section.contacts h2{
   /*-----------sponsors-----------*/
   .sponsors{
     text-align: center;
-    padding-bottom: 100px;
-    padding-top: 100px;
-    background-color: #2a2a2a;
+    /*padding-bottom: 50px;*/
+    padding-top: 50px;
+    /*background-color: #2a2a2a;*/
   }
   .sponsors>h2{
     margin: 0;
-    color: white;
+    margin-bottom: 20px;
   }
-  .sponsors-content{
-    position: relative;
-    align-content: center;
-    display: block;
-    height:310px;
+  .autoplay>div{
+    width: 100%%;
   }
-  .sponsors-content>img{
-    position: absolute;
-    height: 300px;
-    opacity: 0;
-    transition: opacity 0.5s;
-    display: block;
+  .autoplay{
     margin: auto;
-    left: 50%;
-    transform: translateX(-50%);
+    width: 90%;
   }
-  .sponsors-content>img.active-slide{
-    opacity: 1;
+  .autoplay img{
+    margin: auto;
   }
   /*---------footer---------*/
   .footer{
@@ -290,27 +419,32 @@ section.contacts h2{
     color: white;
     height: 40px;
     line-height: 40px;
+    box-sizing: content-box;
     padding-top: 10px;
     padding-bottom: 5px;
   }
   .footer-content{
-    padding-top: 5px;
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
   .footer-header h4{
     margin: 0;
+    font-weight: bold;
+    /*box-sizing: content-box !important;*/
   }
   .footer-content>div{
     display: flex;
     margin: auto;
     width: 80%;
     padding-top: 5px;
-    padding-bottom: 5px;
+    padding-bottom: 20px;
     text-align: center;
   }
   .footer-content>div>a{
     display: block;
     width: 40px;
     height: 40px;
+    cursor: pointer;
     background-color: white;
     /*line-height: 50px;*/
     border-radius: 100%;
@@ -335,7 +469,7 @@ section.contacts h2{
   	color: #d34836;
   }
   a.insta i:hover{
-  	color: #5F82AC;
+  	color: #fb3958;
   }
   .excel-footer p{
     margin: 0;
@@ -349,13 +483,70 @@ section.contacts h2{
   #mec img{
     height: 50px;
   }
+  .industry-cont{
+    margin-top: 50px;
+    font-weight: bold;
+  }
+  .footer-content .college-footer{
+    text-align: left;
+  }
+  .prevlogo img{
+    width: 100%;
+  }
+  .prevlogo{
+    display: flex;
+    width: 100%;
+    position: relative;
+  }
+  .prevlogo>div{
+    width: 40%;
+    margin: auto;
+    position: relative;
+  }
+  .prevlogo .line{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100%;
+    background-color: black;
+    width: 2px;
+    margin: 0px 5px 0px 5px;
+  }
+  .prevkar>div{
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+  .prevdesc{
+    text-align: center;
+    font-size: 20px;
+  }
+  .excel2016 h2{
+    text-align: center;
+  }
+  .ic-small{
+    height: 30px;
+  }
+}
+
+@media (min-width:360px){
+  .experience-content>div h3{
+    font-size: 11px;
+    margin-bottom: 2px;
+  }
+  /*photo and the text in testimony*/
+  .experience-content>div>div>span{
+    font-size: 10px;
+  }
+  .experience-content>div>div>p{
+    font-size: 15px;
+  }
+
 }
 
 @media (min-width:375px){
   .mec-link{
     left: 0;
     right: unset;
-
   }
   .mec-link img{
     height: 35px;
@@ -363,15 +554,129 @@ section.contacts h2{
 }
 
 @media (min-width:768px){
+
+.brochure-button a{
+  font-size: 23px;
+}
+  .reach-content{
+    height: 200px;
+  }
+  .spon16{
+    font-size: 25px;
+  }
+  .prevkar{
+    display: flex;
+  }
+  .roots h2, .roots p, .ibeto p, .ibeto h2, .ibetosection a, .services p, .services h2{
+    text-align: unset;
+  }
+  .ibeto>*{
+    width: 100%;
+  }
+  h2{
+    font-size: 30px;
+  }
+  /*logacy*/
+  .tagline img{
+    height: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .logo-container{
+    margin: auto;
+  }
+  .logo-container img{
+    width: 500px;
+  }
+  .roots img{
+    width: 250px;
+    float: left;
+    shape-outside: circle();
+  }
+  .roots p{
+    line-height: 25px;
+    font-size: 18px;
+  }
+  section{
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .container{
+    max-width: 960px;
+    margin: auto;
+  }
+  section.drop_screen{
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
   section.reach,section.contacts{
     padding-top: 100px;
     padding-bottom: 100px;
   }
-  section.experience{
-    padding-top:0;
+  .reach-content img#logo{
+    width: 500px;
   }
+  .reach-content p{
+    /*line-height: 100px;*/
+    /*width: 60%;*/
+    font-size: 25px;
+  }
+  .grad{
+    font-size: 30px;
+  }
+  .reach h2{
+    margin-bottom: 0;
+  }
+  .graphic{
+    height: 100px;
+  }
+
+  /*ibeto*/
+
+  .ibeto{
+    text-align: left;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .ibeto-sec{
+    display: flex;
+    flex-direction: row-reverse;
+    margin: auto;
+    text-align: center;
+  }
+  .ibeto-sec img{
+    /*shape-outside: circle();*/
+    width: 250px;
+    margin-left: 15px;
+  }
+  .ibanim{
+    position: relative;
+  }
+  ,.ibeto a{
+    margin: auto;
+    /*color: white;*/
+  }
+
+  .ibeto p{
+    line-height: 25px;
+    font-size: 18px;
+  }
+
+  .services img{
+    width: 250px;
+    shape-outside: circle();
+    float: left;
+    margin-right: 35px;
+  }
+
+  .services p{
+    line-height: 25px;
+    font-size: 18px;
+  }
+
   .drop_screen{
-    background-position: right;
+    background-position: center;
     height: unset;
     position: relative;
   }
@@ -381,14 +686,22 @@ section.contacts h2{
     width: 100%;
     height: 100%;
   }
+  .college-container img{
+    display: block;
+    margin: auto;
+    width: 70%;
+  }
   .legacy{
     position: static;
     margin: auto;
     z-index: 1;
-    margin-top: 100px;
+    /*margin-top: 150px;*/
+    text-align: center;
     left: unset;
     transform: unset;
     background: none;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.5);
   }
   .mec-link img{
     height: 40px;
@@ -398,34 +711,17 @@ section.contacts h2{
   }
   .legacy>p{
     text-align: center;
+    line-height: 25px;
     font-size: 20px;
-  }
-  .reach-content{
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-  }
-  .reach-content>div{
-    width: 40%;
-    margin: auto;
-    margin-top: 50px;
-    font-size: 20px;
-  }
-  .reach-content>div>.subh{
-    font-size: 23px;
-  }
-  .reach-content>div img {
-    width: 70px;
-  }
-  .sublogo{
-    transform: translate(-40%,-40%);
   }
   .experience-content{
     display: flex;
     flex-wrap: wrap;
   }
   .experience-content>div{
-    width: 50%;
+    width: 45%;
+    margin-left: auto;
+    margin-right: auto;
     /*order: 1;*/
   }
   .experience-content>div>img{
@@ -440,38 +736,28 @@ section.contacts h2{
     order: 2;
   }
   .experience-content>div h3{
-    font-size: 19px;
-  }
-  .experience-content>div>div>span{
     font-size: 15px;
   }
+  .experience-content>div>div>span{
+    font-size: 10px;
+  }
   .experience-content>div>div>p{
-    font-size: 17px
+    font-size: 13px;
   }
   .checker{
     background-color: #cc6464;
     color: white;
   }
-  .sponsors-content{
-    display: flex;
-    flex-wrap: wrap;
-    height: unset;
-  }
-  .sponsors-content>img{
-    position: relative;
-    opacity: 1;
-    left: unset;
-    transform: none;
-    /*filter: grayscale();*/
-    height: 200px;
-  }
+
   /*-----contacts------*/
   .contacts-contents{
     display: flex;
     flex-wrap: wrap;
+    width: 100%;
+    margin: auto;
   }
   .contacts-contents>div{
-    width: 40%;
+    width: 35%;
     margin: auto;
     margin-top: 40px;
   }
@@ -489,6 +775,7 @@ section.contacts h2{
   }
   .footer{
     margin-bottom: 72px;
+    padding-top: 0;
   }
   .footer-content>div{
     width: 60%;
@@ -502,13 +789,43 @@ section.contacts h2{
   #mec img{
     height: 70px;
   }
+  .ic-small{
+    height: 50px;
+  }
 }
 
-
-
-@media (min-width:1000px){
+@media (min-width:1200px){
+  .mec-link img{
+    height: 70px;
+  }
+  .services .industry-cont{
+    text-align: right;
+  }
+  .ibetosection a{
+    width: 30%;
+  }
+  .logo-container img{
+    width: 700px;
+  }
+  .roots img,.services img{
+    width: 350px;
+  }
+  .ibeto img{
+    width: 300px;
+  }
+  .contacts-contents{
+    width: 70%;
+  }
+  .contacts-contents>div{
+    width: 40%;
+    margin: auto;
+    margin-top: 40px;
+  }
   .navbar{
     display: none;
+  }
+  section.college{
+    /*height: calc(100vh - 70px);*/
   }
   /*--------tab-styles---------*/
   .tabview-container{
@@ -533,10 +850,10 @@ section.contacts h2{
     display: none ;
   }
   .mec-link{
-    top: unset;
-    left: unset;
-    right: 0;
-    bottom: 0;
+    top: 0;
+    left: 0;
+    right: unset;
+    bottom: unset;
   }
   /*.mec-link img{
     height: 35px;
@@ -552,39 +869,49 @@ section.contacts h2{
   /*-------dropscreen----------*/
   .drop_screen{
     margin-top: 70px;
-    height: calc(100vh - 70px);
+    height: calc(100vh - 270px);
   }
   .legacy>p{
-    text-align: left;
-    width: 50%
-  }
-  /*------reach-------*/
-  .reach-content>div>div{
-    width: 85%;
+    text-align: center;
     margin: auto;
   }
-  .reach-content>div{
-    width: 30%;
+  /*------reach-------*/
+  .grad{
+    font-size: 38px;
+  }
+  .reach-content p{
+    font-size: 30px;
   }
   /*---------experience-------*/
-  .experience{
+  /*.experience{
     display: flex;
     padding-top: 0;
+  }*/
+  .experience-content>div{
+    width: 30%;
   }
   .experience>div.experience-header{
     width: 25%;
+    margin: auto;
+  }
+  .experience-content>div h3{
+    font-size: 15px;
+  }
+  .experience-content>div>div>span{
+    font-size: 12px;
+  }
+  .experience-content>div>div>p{
+    font-size: 15px;
   }
   div.experience-header>h2{
     position: relative;
-    top: 50%;
-    transform: translateY(-50%);
   }
   .experience-content{
-    width: 75%;
+    width: 100%;
   }
   /*-----contacts--------*/
   .contacts-contents>div{
-    width: 35%;
+    width: 30%;
   }
   /*------footer---------*/
   .footer{
@@ -606,15 +933,28 @@ section.contacts h2{
 }
 
 @media(min-width:1400px){
+
+  .experience-content>div>div>h3{
+    font-size: 16px;
+  }
   .experience-content>div>div>p{
-    font-size: 25px;
+    font-size: 18px;
   }
   .contacts-contents>div{
     width: 30%;
   }
   .contacts-contents{
-    width: 80%;
+    width: 60%;
     margin: auto;
     margin-top: 40px;
+  }
+}
+
+@keyframes scalein{
+  0%{
+    transform: scale(1)translate(-50%,50%);
+  }
+  100%{
+    transform: scale(0.5)translate(-50%,50%);
   }
 }
